@@ -106,7 +106,7 @@ defmodule SmartCity.TestDataGenerator do
   def create_data(%{} = overrides) do
     {:ok, data} =
       data_example()
-      |> SmartCity.Helpers.deep_merge(overrides)
+      |> Map.merge(overrides)
       |> (fn map -> apply(SmartCity.Data, :new, [map]) end).()
 
     data
