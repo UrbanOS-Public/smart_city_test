@@ -12,6 +12,6 @@ defmodule SmartCity.TestDataGeneratorTest do
   end
 
   test "create_data/1 creates valid data" do
-    assert match?(%SmartCity.Data{}, TDG.create_data(%{}))
+    assert match?(%SmartCity.Data{}, TDG.create_data(%{dataset_id: "12"}))
   end
 end

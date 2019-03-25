@@ -8,8 +8,6 @@ defmodule SmartCityTest.MixProject do
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      elixirc_paths: elixirc_paths(Mix.env()),
-      test_paths: test_paths(Mix.env())
     ]
   end
 
@@ -32,9 +30,4 @@ defmodule SmartCityTest.MixProject do
     ]
   end
 
-  defp elixirc_paths(env) when env in [:test, :integration], do: ["lib", "test/support"]
-  defp elixirc_paths(_), do: ["lib"]
-
-  defp test_paths(:integration), do: ["test/integration"]
-  defp test_paths(_), do: ["test/unit"]
 end

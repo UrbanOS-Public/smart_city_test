@@ -56,7 +56,7 @@ defmodule SmartCity.TestDataGenerator do
     create_dataset(Map.new(term))
   end
 
-  def organization_example do
+  defp organization_example do
     org = "#{Faker.Color.It.name()}_#{Faker.Cat.name()}"
     %{
       id: Faker.UUID.v4(),
@@ -81,7 +81,7 @@ defmodule SmartCity.TestDataGenerator do
     create_organization(Map.new(term))
   end
 
-  def data_example do
+  defp data_example do
     start_time = DateTime.utc_now() |> DateTime.to_iso8601()
     end_time = DateTime.utc_now() |> DateTime.add(:rand.uniform(5_000)) |> DateTime.to_iso8601()
     payload = Payload.create_payload(:test)
@@ -113,4 +113,10 @@ defmodule SmartCity.TestDataGenerator do
   def create_data(term) do
     create_data(Map.new(term))
   end
+
+  def create_data(overrides, number) do
+    1..number
+    |> Enum.map(fn _index -> create_data(overrides) end)
+  end
+
 end
