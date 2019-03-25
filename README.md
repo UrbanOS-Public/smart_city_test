@@ -1,6 +1,5 @@
-# SmartCityTest
+# SmartCityTest - Test Utilities
 
-**TODO: Add description**
 
 ## Installation
 
