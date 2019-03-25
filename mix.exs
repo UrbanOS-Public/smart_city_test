@@ -7,7 +7,10 @@ defmodule SmartCityTest.MixProject do
       version: "0.1.0",
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      description: description(),
+      deps: deps(),
+      package: package(),
+      source_url: "https//www.github.com/SmartColumbusOS"
     ]
   end
 
@@ -18,15 +21,27 @@ defmodule SmartCityTest.MixProject do
     ]
   end
 
+  def description() do
+    "A library that contains test utilites used in the Smart City project"
+  end
+
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:smart_city, "~> 2.1", organization: "smartcolumbus_os", override: true},
+      {:smart_city, "~> 2.1", organization: "smartcolumbus_os"},
       {:smart_city_data, "~> 2.0", organization: "smartcolumbus_os", only: [:test]},
       {:smart_city_registry, "~> 2.3", organization: "smartcolumbus_os", only: [:test]},
       {:faker, "~> 0.12.0"},
       {:ex_doc, "~> 0.19.3"},
-      {:credo, "~> 1.0"}
+      {:credo, "~> 1.0", only: [:dev, :test, :integration], runtime: false}
+    ]
+  end
+
+  defp package do
+    [
+      organization: "smartcolumbus_os",
+      licenses: ["AllRightsReserved"],
+      links: %{"GitHub" => "https://www.github.com/SmartColumbusOS/smart_city_test"}
     ]
   end
 end
