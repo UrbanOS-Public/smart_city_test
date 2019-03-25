@@ -19,5 +19,4 @@ defmodule SmartCity.KafkaHelper do
     json_msg = apply(Jason, :encode!, [msg])
     apply(Kaffe.Producer, :produce_sync, [topic, [{"the_key", json_msg}]])
   end
-
 end

@@ -58,6 +58,7 @@ defmodule SmartCity.TestDataGenerator do
 
   defp organization_example do
     org = "#{Faker.Color.It.name()}_#{Faker.Cat.name()}"
+
     %{
       id: Faker.UUID.v4(),
       orgTitle: org,
@@ -85,6 +86,7 @@ defmodule SmartCity.TestDataGenerator do
     start_time = DateTime.utc_now() |> DateTime.to_iso8601()
     end_time = DateTime.utc_now() |> DateTime.add(:rand.uniform(5_000)) |> DateTime.to_iso8601()
     payload = Payload.create_payload(:test)
+
     %{
       payload: payload,
       _metadata: %{org: Faker.Company.name(), name: Faker.Team.name()},
@@ -118,5 +120,4 @@ defmodule SmartCity.TestDataGenerator do
     1..number
     |> Enum.map(fn _index -> create_data(overrides) end)
   end
-
 end
