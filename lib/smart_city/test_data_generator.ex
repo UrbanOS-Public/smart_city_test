@@ -28,6 +28,7 @@ defmodule SmartCity.TestDataGenerator do
       technical: %{
         dataName: title,
         orgName: org,
+        orgId: Faker.UUID.v4(),
         systemName: "#{title}__#{org}",
         stream: false,
         schema: schema,
