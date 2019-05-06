@@ -1,6 +1,12 @@
 defmodule SmartCity.TestDataGenerator.Schema do
-  @moduledoc false
+  @moduledoc """
+  Module containing retrieval functions for schema definitions.
+  """
 
+  @doc """
+  Returns a map containing schema based on requested type.
+  """
+  @spec get(atom()) :: map() | {:error, String.t()}
   def get(:basic) do
     {:ok,
      %{

@@ -9,7 +9,7 @@ by adding `smart_city_test` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:smart_city_test, "~> 0.2.0"}
+    {:smart_city_test, "~> 0.2.4"}
   ]
 end
 ```
