@@ -48,7 +48,14 @@ defmodule SmartCity.TestDataGenerator do
   @doc """
   Creates and returns a new `SmartCity.Dataset` example
   """
-  @spec create_dataset(%{optional(:id) => String.t(), optional(:business) => SmartCity.Dataset.Business, optional(:technical) => SmartCity.Dataset.Technical} | Enumerable.t()) :: SmartCity.Dataset
+  @spec create_dataset(
+          %{
+            optional(:id) => String.t(),
+            optional(:business) => SmartCity.Dataset.Business,
+            optional(:technical) => SmartCity.Dataset.Technical
+          }
+          | Enumerable.t()
+        ) :: SmartCity.Dataset
   def create_dataset(%{} = overrides) do
     {:ok, dataset} =
       dataset_example()
@@ -79,7 +86,18 @@ defmodule SmartCity.TestDataGenerator do
   @doc """
   Creates and returns a new `SmartCity.Organization` example
   """
-  @spec create_organization(%{optional(:description) => String.t(), optional(:homepage) => String.t(), optional(:id) => String.t(), optional(:logoUrl) => String.t(), optional(:orgName) => String.t(), optional(:orgTitle) => String.t(), optional(:dn) => String.t()} | Enumerable.t()) :: SmartCity.Organization
+  @spec create_organization(
+          %{
+            optional(:description) => String.t(),
+            optional(:homepage) => String.t(),
+            optional(:id) => String.t(),
+            optional(:logoUrl) => String.t(),
+            optional(:orgName) => String.t(),
+            optional(:orgTitle) => String.t(),
+            optional(:dn) => String.t()
+          }
+          | Enumerable.t()
+        ) :: SmartCity.Organization
   def create_organization(%{} = overrides) do
     {:ok, organization} =
       organization_example()
@@ -118,7 +136,15 @@ defmodule SmartCity.TestDataGenerator do
   @doc """
   Creates and returns a new `SmartCity.Data` example
   """
-  @spec create_data(%{optional(:dataset_id) => String.t(), optional(:_metadata) => map(), optional(:operational) => map(), optional(:payload) => map()} | Enumerable.t()) :: SmartCity.Data
+  @spec create_data(
+          %{
+            optional(:dataset_id) => String.t(),
+            optional(:_metadata) => map(),
+            optional(:operational) => map(),
+            optional(:payload) => map()
+          }
+          | Enumerable.t()
+        ) :: SmartCity.Data
   def create_data(%{} = overrides) do
     {:ok, data} =
       data_example()
@@ -135,7 +161,16 @@ defmodule SmartCity.TestDataGenerator do
   @doc """
   Creates and returns a predefined number of `SmartCity.Data` examples
   """
-  @spec create_data(%{optional(:dataset_id) => String.t(), optional(:_metadata) => map(), optional(:operational) => map(), optional(:payload) => map()} | Enumerable.t(), integer()) :: SmartCity.Data
+  @spec create_data(
+          %{
+            optional(:dataset_id) => String.t(),
+            optional(:_metadata) => map(),
+            optional(:operational) => map(),
+            optional(:payload) => map()
+          }
+          | Enumerable.t(),
+          integer()
+        ) :: SmartCity.Data
   def create_data(overrides, number) do
     1..number
     |> Enum.map(fn _index -> create_data(overrides) end)
