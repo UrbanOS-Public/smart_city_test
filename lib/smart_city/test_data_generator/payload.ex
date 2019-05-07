@@ -1,21 +1,31 @@
 defmodule SmartCity.TestDataGenerator.Payload do
-  @moduledoc false
+  @moduledoc """
+  Module that generates payloads based on schema type.
+  """
   require Logger
   alias SmartCity.TestDataGenerator.Schema
 
-  def create_payload(dataset_id) do
-    dataset_id
+  @doc """
+  Generates payload for requested schema type.
+  """
+  @spec create_payload(atom()) :: map()
+  def create_payload(schema_type) do
+    schema_type
     |> get_schema()
     |> generate_payload()
   end
 
-  def get_schema(dataset_id) do
-    case Schema.get(dataset_id) do
+  @doc """
+  Returns a map containing schema for the requested schema type.
+  """
+  @spec get_schema(atom()) :: {:ok, map()} | :error
+  def get_schema(schema_type) do
+    case Schema.get(schema_type) do
       {:ok, schema} ->
         Map.get(schema, "schema")
 
       :error ->
-        raise "Schema does not exist: #{dataset_id}"
+        raise "Schema does not exist: #{schema_type}"
     end
   end
 
