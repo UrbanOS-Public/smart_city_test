@@ -77,7 +77,7 @@ defmodule SmartCity.TestDataGenerator do
       orgTitle: org,
       orgName: String.downcase(org),
       description: Faker.Lorem.Shakespeare.hamlet(),
-      logoUrl: "http://#{Faker.Internet.domain_name()}/logo.png",
+      logoUrl: Faker.Internet.image_url(),
       homepage: Faker.Internet.domain_name(),
       dn: Faker.Internet.domain_name()
     }
