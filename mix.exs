@@ -9,6 +9,7 @@ defmodule SmartCityTest.MixProject do
       start_permanent: Mix.env() == :prod,
       description: description(),
       deps: deps(),
+      docs: docs(),
       package: package(),
       source_url: "https//www.github.com/SmartColumbusOS"
     ]
@@ -42,6 +43,16 @@ defmodule SmartCityTest.MixProject do
       organization: "smartcolumbus_os",
       licenses: ["AllRightsReserved"],
       links: %{"GitHub" => "https://www.github.com/SmartColumbusOS/smart_city_test"}
+    ]
+  end
+
+  defp docs do
+    [
+      main: "readme",
+      source_url: "https://github.com/SmartColumbusOS/smart_city_test",
+      extras: [
+        "README.md"
+      ]
     ]
   end
 end

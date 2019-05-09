@@ -1,10 +1,11 @@
-# SmartCityTest - Test Utilities
+# SmartCityTest
 
+This module defines test utilities for SmartCity libraries. These utilities take the form of a fake data generator to simulate
+real data messages of different schemas that may be passed between microservices.
+
+For more information about the `SmartCity.TestDataGenerator`, please see [https://smartcolumbus_os.hexdocs.pm/smart_city_test/api-reference.html](https://smartcolumbus_os.hexdocs.pm/smart_city_test/api-reference.html)
 
 ## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `smart_city_test` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -14,7 +15,7 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/smart_city_test](https://hexdocs.pm/smart_city_test).
+## License
+
+SmartCity is released under the Apache 2.0 license - see the license at [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
