@@ -10,7 +10,7 @@ For more information about the `SmartCity.TestDataGenerator`, please see [https:
 ```elixir
 def deps do
   [
-    {:smart_city_test, "~> 0.2.4"}
+    {:smart_city_test, "~> 0.2.5"}
   ]
 end
 ```
