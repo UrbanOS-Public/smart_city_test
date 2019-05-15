@@ -56,6 +56,14 @@ defmodule SmartCity.TestDataGenerator do
           }
           | Enumerable.t()
         ) :: SmartCity.Dataset
+  def create_dataset(%{} = overrides) when overrides == %{} do
+    {:ok, dataset} =
+      dataset_example()
+      |> (fn map -> apply(SmartCity.Dataset, :new, [map]) end).()
+
+    dataset
+  end
+
   def create_dataset(%{} = overrides) do
     {:ok, dataset} =
       dataset_example()
@@ -98,6 +106,14 @@ defmodule SmartCity.TestDataGenerator do
           }
           | Enumerable.t()
         ) :: SmartCity.Organization
+  def create_organization(%{} = overrides) when overrides == %{} do
+    {:ok, organization} =
+      organization_example()
+      |> (fn map -> apply(SmartCity.Organization, :new, [map]) end).()
+
+    organization
+  end
+
   def create_organization(%{} = overrides) do
     {:ok, organization} =
       organization_example()
