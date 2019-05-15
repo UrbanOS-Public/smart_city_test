@@ -1,3 +1,6 @@
+[![Master](https://travis-ci.org/smartcitiesdata/smart_city_test.svg?branch=master)](https://travis-ci.org/smartcitiesdata/smart_city_test)
+[![Hex.pm Version](http://img.shields.io/hexpm/v/smart_city_test.svg?style=flat)](https://hex.pm/packages/smart_city_test)
+
 # SmartCityTest
 
 This module defines test utilities for SmartCity libraries. These utilities take the form of a fake data generator to simulate
@@ -10,7 +13,7 @@ For more information about the `SmartCity.TestDataGenerator`, please see [https:
 ```elixir
 def deps do
   [
-    {:smart_city_test, "~> 0.2.4"}
+    {:smart_city_test, "~> 0.2.5"}
   ]
 end
 ```
