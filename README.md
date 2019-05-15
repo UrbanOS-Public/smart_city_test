@@ -6,7 +6,7 @@
 This module defines test utilities for SmartCity libraries. These utilities take the form of a fake data generator to simulate
 real data messages of different schemas that may be passed between microservices.
 
-For more information about the `SmartCity.TestDataGenerator`, please see [https://smartcolumbus_os.hexdocs.pm/smart_city_test/api-reference.html](https://smartcolumbus_os.hexdocs.pm/smart_city_test/api-reference.html)
+For more information about the `SmartCity.TestDataGenerator`, please see [https://hexdocs.pm/smart_city_test/api-reference.html](https://hexdocs.pm/smart_city_test/api-reference.html)
 
 ## Installation
 
