@@ -5,8 +5,21 @@ defmodule SmartCity.TestDataGenerator do
 
   alias SmartCity.TestDataGenerator.Payload
 
+  defp generate_title do
+    random = generate_random_characters(5)
+    fancy_color = Faker.Color.fancy_name()
+    color = Faker.Color.En.name()
+
+    "#{fancy_color}_#{color}_#{random}"
+  end
+
+  defp generate_random_characters(size) do
+    alphabet = String.split("ABCDEFGHIJKLMNOPQRSTUVWXYZ", "", trim: true)
+    Enum.reduce(1..size, [], fn _, acc -> [Enum.random(alphabet) | acc] end)
+  end
+
   defp dataset_example do
-    title = "#{Faker.Color.fancy_name()}_#{Faker.Color.Es.name()}"
+    title = generate_title()
     org = "#{Faker.Color.It.name()}_#{Faker.Cat.name()}"
 
     schema = Payload.get_schema(:test)
