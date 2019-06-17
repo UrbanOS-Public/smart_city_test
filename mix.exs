@@ -34,7 +34,9 @@ defmodule SmartCityTest.MixProject do
       {:smart_city_registry, "2.6.6", organization: "smartcolumbus_os", only: [:test]},
       {:faker, "~> 0.12.0"},
       {:ex_doc, "~> 0.19.3"},
-      {:credo, "~> 1.0", only: [:dev, :test, :integration], runtime: false}
+      {:credo, "~> 1.0", only: [:dev, :test, :integration], runtime: false},
+      {:patiently, "~> 0.2.0"},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
     ]
   end
 
