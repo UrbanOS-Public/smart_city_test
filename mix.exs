@@ -36,7 +36,8 @@ defmodule SmartCityTest.MixProject do
       {:ex_doc, "~> 0.19"},
       {:credo, "~> 1.1", only: [:dev, :test, :integration], runtime: false},
       {:patiently, "~> 0.2"},
-      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
+      {:husky, "~> 1.0", only: :dev, runtime: false}
     ]
   end
 
