@@ -11,8 +11,9 @@
   "makeup_elixir": {:hex, :makeup_elixir, "0.13.0", "be7a477997dcac2e48a9d695ec730b2d22418292675c75aa2d34ba0909dcdeda", [:mix], [{:makeup, "~> 0.8", [hex: :makeup, repo: "hexpm", optional: false]}], "hexpm"},
   "nimble_parsec": {:hex, :nimble_parsec, "0.5.0", "90e2eca3d0266e5c53f8fbe0079694740b9c91b6747f2b7e3c5d21966bba8300", [:mix], [], "hexpm"},
   "patiently": {:hex, :patiently, "0.2.0", "67eb139591e10c4b363ae0198e832552f191c58894731efd3bf124ec4722267a", [:mix], [], "hexpm"},
-  "redix": {:hex, :redix, "0.9.3", "c51d66657018a9b14f3b4496b1ba70ef6a16e8414cd19b34635242ac371beb95", [:mix], [], "hexpm"},
-  "smart_city": {:hex, :smart_city, "2.1.4", "019b09dee94caefbf260c6d9461d28f86710f56dc408e659bb93b26d88fc1f41", [:mix], [], "hexpm"},
-  "smart_city_data": {:hex, :smart_city_data, "2.1.6", "91c00a9621810ba7f0a516081515e713c29a9e2cc45952497f9e1a2bb8a98bba", [:mix], [{:jason, "~> 1.1", [hex: :jason, repo: "hexpm", optional: false]}, {:smart_city, "~> 2.1", [hex: :smart_city, repo: "hexpm", optional: false]}], "hexpm"},
-  "smart_city_registry": {:hex, :smart_city_registry, "3.2.0", "3ff812e871c308288f5e47ce7c40300e323fb215c86899b2ac8f691aa1509c02", [:mix], [{:jason, "~> 1.1", [hex: :jason, repo: "hexpm", optional: false]}, {:redix, "~> 0.9.3", [hex: :redix, repo: "hexpm", optional: false]}, {:smart_city, "~> 2.1", [hex: :smart_city, repo: "hexpm", optional: false]}], "hexpm"},
+  "redix": {:hex, :redix, "0.10.2", "a9eabf47898aa878650df36194aeb63966d74f5bd69d9caa37babb32dbb93c5d", [:mix], [{:telemetry, "~> 0.4.0", [hex: :telemetry, repo: "hexpm", optional: false]}], "hexpm"},
+  "smart_city": {:hex, :smart_city, "2.1.5", "48c9f9e7de21d6c5584bc578bfdad85ff9242d4cb84653260420901a2d690cc6", [:mix], [], "hexpm"},
+  "smart_city_data": {:hex, :smart_city_data, "2.1.7", "58ff33b1300ba105e726bdea115b3e7cca9a8194cf4ac1a20bb26bb896181a47", [:mix], [{:jason, "~> 1.1", [hex: :jason, repo: "hexpm", optional: false]}, {:smart_city, "~> 2.1", [hex: :smart_city, repo: "hexpm", optional: false]}], "hexpm"},
+  "smart_city_registry": {:hex, :smart_city_registry, "3.2.2", "bc362db25796cf1054518e63827a1446f7e7d2f62e07957690b8d3b5d15937ce", [:mix], [{:jason, "~> 1.1", [hex: :jason, repo: "hexpm", optional: false]}, {:redix, "~> 0.9", [hex: :redix, repo: "hexpm", optional: false]}, {:smart_city, "~> 2.1", [hex: :smart_city, repo: "hexpm", optional: false]}], "hexpm"},
+  "telemetry": {:hex, :telemetry, "0.4.0", "8339bee3fa8b91cb84d14c2935f8ecf399ccd87301ad6da6b71c09553834b2ab", [:rebar3], [], "hexpm"},
 }
