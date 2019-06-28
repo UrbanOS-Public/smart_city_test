@@ -8,8 +8,11 @@ install:
   - mix local.hex --force
   - mix hex.organization auth smartcolumbus_os --key $HEX_API_KEY
   - mix deps.get
+script:
   - mix format --check-formatted
   - mix credo
+  - mix hex.outdated
+  - mix test
 deploy:
   skip_cleanup: true
   provider: script
