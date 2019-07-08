@@ -52,7 +52,7 @@ defmodule SmartCity.TestDataGenerator do
         transformations: ["trim", "aggregate", "rename_field"],
         validations: ["matches_schema", "no_nulls"],
         headers: %{accepts: "application/json"},
-        sourceType: "batch",
+        sourceType: "ingest",
         private: false
       }
     }
