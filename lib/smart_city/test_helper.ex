@@ -14,7 +14,7 @@ defmodule SmartCity.TestHelper do
 
   """
   @spec eventually(asserting_function(), integer, integer) :: :ok | none()
-  def eventually(function, dwell \\ 2_000, max_tries \\ 20) do
+  def eventually(function, dwell \\ 2_000, max_tries \\ 5) do
     case Patiently.wait_for(
            wrap_assertions_as_falsey(function),
            dwell: dwell,
