@@ -4,7 +4,7 @@ defmodule SmartCityTest.MixProject do
   def project do
     [
       app: :smart_city_test,
-      version: "0.3.3",
+      version: "0.3.4",
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
       description: description(),
@@ -31,7 +31,7 @@ defmodule SmartCityTest.MixProject do
     [
       {:smart_city, "~> 2.1"},
       {:smart_city_data, "~> 2.1", only: [:test]},
-      {:smart_city_registry, "~> 3.2", only: [:test]},
+      {:smart_city_registry, "~> 4.0", only: [:test]},
       {:faker, "~> 0.12"},
       {:ex_doc, "~> 0.19"},
       {:credo, "~> 1.1", only: [:dev, :test, :integration], runtime: false},
