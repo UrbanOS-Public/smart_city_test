@@ -17,6 +17,10 @@ defmodule SmartCity.KafkaHelper do
 
   def send_to_kafka(msg, topic) do
     json_msg = apply(Jason, :encode!, [msg])
-    apply(Kaffe.Producer, :produce_sync, [topic, [{"the_key", json_msg}]])
+    :brod.start_client(endpoint(), :test_data_client, [])
+    :brod.start_producer(:test_data_client, topic, [])
+    :brod.produce_sync(:test_data_client, topic, 0, "the_key", json_msg)
   end
+
+  defp endpoint(), do: Application.get_env(:smart_city_test, :endpoint)
 end
