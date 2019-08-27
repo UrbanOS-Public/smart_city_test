@@ -59,20 +59,20 @@ defmodule SmartCity.TestDataGenerator do
   end
 
   @doc """
-  Creates and returns a new `SmartCity.Event.DatasetUpdate` example
+  Creates and returns a new `SmartCity.Dataset` example
   """
   @spec create_dataset(
           %{
             optional(:id) => String.t(),
-            optional(:business) => SmartCity.Event.DatasetUpdate.Business,
-            optional(:technical) => SmartCity.Event.DatasetUpdate.Technical
+            optional(:business) => SmartCity.Dataset.Business,
+            optional(:technical) => SmartCity.Dataset.Technical
           }
           | Enumerable.t()
-        ) :: SmartCity.Event.DatasetUpdate
+        ) :: SmartCity.Dataset
   def create_dataset(%{} = overrides) when overrides == %{} do
     {:ok, dataset} =
       dataset_example()
-      |> (fn map -> apply(SmartCity.Event.DatasetUpdate, :new, [map]) end).()
+      |> (fn map -> apply(SmartCity.Dataset, :new, [map]) end).()
 
     dataset
   end
@@ -81,7 +81,7 @@ defmodule SmartCity.TestDataGenerator do
     {:ok, dataset} =
       dataset_example()
       |> SmartCity.Helpers.deep_merge(overrides)
-      |> (fn map -> apply(SmartCity.Event.DatasetUpdate, :new, [map]) end).()
+      |> (fn map -> apply(SmartCity.Dataset, :new, [map]) end).()
 
     dataset
   end
@@ -105,7 +105,7 @@ defmodule SmartCity.TestDataGenerator do
   end
 
   @doc """
-  Creates and returns a new `SmartCity.Event.OrganizationUpdate` example
+  Creates and returns a new `SmartCity.Organization` example
   """
   @spec create_organization(
           %{
@@ -118,11 +118,11 @@ defmodule SmartCity.TestDataGenerator do
             optional(:dn) => String.t()
           }
           | Enumerable.t()
-        ) :: SmartCity.Event.OrganizationUpdate
+        ) :: SmartCity.Organization
   def create_organization(%{} = overrides) when overrides == %{} do
     {:ok, organization} =
       organization_example()
-      |> (fn map -> apply(SmartCity.Event.OrganizationUpdate, :new, [map]) end).()
+      |> (fn map -> apply(SmartCity.Organization, :new, [map]) end).()
 
     organization
   end
@@ -131,7 +131,7 @@ defmodule SmartCity.TestDataGenerator do
     {:ok, organization} =
       organization_example()
       |> SmartCity.Helpers.deep_merge(overrides)
-      |> (fn map -> apply(SmartCity.Event.OrganizationUpdate, :new, [map]) end).()
+      |> (fn map -> apply(SmartCity.Organization, :new, [map]) end).()
 
     organization
   end
