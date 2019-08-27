@@ -31,7 +31,7 @@ defmodule SmartCityTest.MixProject do
     [
       {:brod, "~> 3.8"},
       {:smart_city_data, "~> 3.0", only: [:test]},
-      {:smart_city, github: "smartcitiesdata/smart_city", tag: "2.6.0", only: [:test], override: true},
+      {:smart_city, "~> 2.6"},
       {:faker, "~> 0.12"},
       {:ex_doc, "~> 0.19"},
       {:credo, "~> 1.1", only: [:dev, :test, :integration], runtime: false},
