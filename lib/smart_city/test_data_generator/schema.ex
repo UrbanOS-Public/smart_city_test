@@ -12,12 +12,12 @@ defmodule SmartCity.TestDataGenerator.Schema do
      %{
        "schema" => [
          %{
-           "name" => "id",
-           "type" => "int"
+           name: "id",
+           type: "int"
          },
          %{
-           "name" => "name",
-           "type" => "string"
+           name: "name",
+           type: "string"
          }
        ]
      }}
@@ -28,20 +28,20 @@ defmodule SmartCity.TestDataGenerator.Schema do
      %{
        "schema" => [
          %{
-           "name" => "big",
-           "type" => "string"
+           name: "big",
+           type: "string"
          },
          %{
-           "name" => "bigbig",
-           "type" => "int"
+           name: "bigbig",
+           type: "int"
          },
          %{
-           "name" => "data",
-           "type" => "float"
+           name: "data",
+           type: "float"
          },
          %{
-           "name" => "bigger_data",
-           "type" => "date"
+           name: "bigger_data",
+           type: "date"
          }
        ]
      }}
@@ -52,16 +52,16 @@ defmodule SmartCity.TestDataGenerator.Schema do
      %{
        "schema" => [
          %{
-           "name" => "go",
-           "type" => "int"
+           name: "go",
+           type: "int"
          },
          %{
-           "name" => "fund",
-           "type" => "string"
+           name: "fund",
+           type: "string"
          },
          %{
-           "name" => "yourself",
-           "type" => "string"
+           name: "yourself",
+           type: "string"
          }
        ]
      }}
@@ -72,24 +72,24 @@ defmodule SmartCity.TestDataGenerator.Schema do
      %{
        "schema" => [
          %{
-           "name" => "my_int",
-           "type" => "int"
+           name: "my_int",
+           type: "int"
          },
          %{
-           "name" => "my_string",
-           "type" => "string"
+           name: "my_string",
+           type: "string"
          },
          %{
-           "name" => "my_date",
-           "type" => "date"
+           name: "my_date",
+           type: "date"
          },
          %{
-           "name" => "my_float",
-           "type" => "float"
+           name: "my_float",
+           type: "float"
          },
          %{
-           "name" => "my_boolean",
-           "type" => "boolean"
+           name: "my_boolean",
+           type: "boolean"
          }
        ]
      }}

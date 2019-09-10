@@ -13,7 +13,7 @@ For more information about the `SmartCity.TestDataGenerator`, please see [https:
 ```elixir
 def deps do
   [
-    {:smart_city_test, "~> 0.5.0"}
+    {:smart_city_test, "~> 0.5.1"}
   ]
 end
 ```
@@ -21,4 +21,3 @@ end
 ## License
 
 SmartCity is released under the Apache 2.0 license - see the license at [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
-

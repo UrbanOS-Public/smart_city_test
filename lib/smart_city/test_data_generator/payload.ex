@@ -33,7 +33,7 @@ defmodule SmartCity.TestDataGenerator.Payload do
     Enum.reduce(columns, %{}, &generate_value/2)
   end
 
-  defp generate_value(%{"name" => column, "type" => type}, acc) do
+  defp generate_value(%{name: column, type: type}, acc) do
     Map.put(acc, column, generate_from_type({column, type}))
   end
 
