@@ -4,11 +4,11 @@ defmodule SmartCity.TestDataGeneratorTest do
   alias SmartCity.TestDataGenerator, as: TDG
 
   test "create_dataset/1 creates a valid dataset" do
-    assert match?(%SmartCity.Dataset{}, TDG.create_dataset(%{}))
+    assert match?(%SmartCity.Registry.Dataset{}, TDG.create_dataset(%{}))
   end
 
   test "create_organization/1 creates a valid organization" do
-    assert match?(%SmartCity.Organization{}, TDG.create_organization(%{}))
+    assert match?(%SmartCity.Registry.Organization{}, TDG.create_organization(%{}))
   end
 
   test "create_data/1 creates valid data" do
