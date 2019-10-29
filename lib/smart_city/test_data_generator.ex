@@ -29,7 +29,7 @@ defmodule SmartCity.TestDataGenerator do
       business: %{
         dataTitle: title,
         description: Faker.Lorem.Shakespeare.hamlet(),
-        modifiedDate: Faker.DateTime.backward(360) |> Date.to_iso8601(),
+        modifiedDate: Faker.DateTime.backward(360) |> DateTime.to_iso8601(),
         orgTitle: org,
         contactName: Faker.Name.name(),
         contactEmail: Faker.Internet.email(),
