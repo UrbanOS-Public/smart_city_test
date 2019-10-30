@@ -7,6 +7,13 @@ defmodule SmartCity.TestDataGeneratorTest do
     assert match?(%SmartCity.Dataset{}, TDG.create_dataset(%{}))
   end
 
+  test "creates datasets with valid ISO8601 DateTimes for business.modifiedDate" do
+    dataset = TDG.create_dataset(%{})
+
+    modified_date = DateTime.from_iso8601(dataset.business.modifiedDate)
+    assert elem(modified_date, 0) == :ok
+  end
+
   test "create_organization/1 creates a valid organization" do
     assert match?(%SmartCity.Organization{}, TDG.create_organization(%{}))
   end
