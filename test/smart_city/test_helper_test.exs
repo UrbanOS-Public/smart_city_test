@@ -36,5 +36,22 @@ defmodule SmartCity.TestHelperTest do
         end, 100)
       end)
     end
+
+    test "fails with a HELPFUL (real AssertionError) message when assertion actually ultimately exhausts the retries" do
+      assertion_message = """
+
+
+      Assertion with == failed
+      code:  assert Fake.do_thing_eventually() == "stuff"
+      left:  "thing"
+      right: "stuff"
+      """
+
+      assert_raise(ExUnit.AssertionError, assertion_message, fn ->
+        eventually(fn ->
+          assert Fake.do_thing_eventually() == "stuff"
+        end, 100)
+      end)
+    end
   end
 end
