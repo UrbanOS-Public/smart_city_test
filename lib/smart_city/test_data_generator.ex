@@ -42,7 +42,6 @@ defmodule SmartCity.TestDataGenerator do
         dataName: title,
         orgName: org,
         orgId: Faker.UUID.v4(),
-        systemName: "#{title}__#{org}",
         stream: false,
         schema: schema,
         sourceUrl: Faker.Internet.domain_name(),
@@ -72,6 +71,7 @@ defmodule SmartCity.TestDataGenerator do
   def create_dataset(%{} = overrides) when overrides == %{} do
     {:ok, dataset} =
       dataset_example()
+      |> add_system_name()
       |> (fn map -> apply(SmartCity.Dataset, :new, [map]) end).()
 
     dataset
@@ -81,6 +81,7 @@ defmodule SmartCity.TestDataGenerator do
     {:ok, dataset} =
       dataset_example()
       |> SmartCity.Helpers.deep_merge(overrides)
+      |> add_system_name()
       |> (fn map -> apply(SmartCity.Dataset, :new, [map]) end).()
 
     dataset
@@ -88,6 +89,16 @@ defmodule SmartCity.TestDataGenerator do
 
   def create_dataset(term) do
     create_dataset(Map.new(term))
+  end
+
+  def add_system_name(%{technical: %{systemName: _}} = dataset_map), do: dataset_map
+
+  def add_system_name(dataset_map) do
+    put_in(
+      dataset_map,
+      [:technical, :systemName],
+      "#{dataset_map.technical.orgName}__#{dataset_map.technical.dataName}"
+    )
   end
 
   defp organization_example do
