@@ -7,6 +7,19 @@ defmodule SmartCity.TestDataGeneratorTest do
     assert match?(%SmartCity.Dataset{}, TDG.create_dataset(%{}))
   end
 
+  test "create_dataset/1 makes a valid system name :|" do
+    dataset = TDG.create_dataset(%{})
+    assert dataset.technical.systemName == "#{dataset.technical.orgName}__#{dataset.technical.dataName}"
+  end
+
+  test "create_dataset/1 makes a valid system name :| with overrides" do
+    org_name = "my_org"
+    data_name = "my_data"
+
+    dataset = TDG.create_dataset(%{technical: %{orgName: org_name, dataName: data_name}})
+    assert dataset.technical.systemName == "my_org__my_data"
+  end
+
   test "creates datasets with valid ISO8601 DateTimes for business.modifiedDate" do
     dataset = TDG.create_dataset(%{})
 
@@ -20,5 +33,9 @@ defmodule SmartCity.TestDataGeneratorTest do
 
   test "create_data/1 creates valid data" do
     assert match?(%SmartCity.Data{}, TDG.create_data(%{dataset_id: "12"}))
+  end
+
+  test "create_dataset uses systemName if given one" do
+    assert %{technical: %{systemName: "something"}} = TDG.create_dataset(%{technical: %{systemName: "something"}})
   end
 end
