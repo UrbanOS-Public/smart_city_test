@@ -9,7 +9,9 @@ defmodule SmartCity.TestDataGeneratorTest do
 
   test "create_dataset/1 makes a valid system name :|" do
     dataset = TDG.create_dataset(%{})
-    assert dataset.technical.systemName == "#{dataset.technical.orgName}__#{dataset.technical.dataName}"
+
+    assert dataset.technical.systemName ==
+             "#{dataset.technical.orgName}__#{dataset.technical.dataName}"
   end
 
   test "create_dataset/1 makes a valid system name :| with overrides" do
@@ -36,6 +38,7 @@ defmodule SmartCity.TestDataGeneratorTest do
   end
 
   test "create_dataset uses systemName if given one" do
-    assert %{technical: %{systemName: "something"}} = TDG.create_dataset(%{technical: %{systemName: "something"}})
+    assert %{technical: %{systemName: "something"}} =
+             TDG.create_dataset(%{technical: %{systemName: "something"}})
   end
 end

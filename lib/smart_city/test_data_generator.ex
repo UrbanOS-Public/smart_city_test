@@ -92,8 +92,13 @@ defmodule SmartCity.TestDataGenerator do
   end
 
   def add_system_name(%{technical: %{systemName: _}} = dataset_map), do: dataset_map
+
   def add_system_name(dataset_map) do
-    put_in(dataset_map, [:technical, :systemName], "#{dataset_map.technical.orgName}__#{dataset_map.technical.dataName}")
+    put_in(
+      dataset_map,
+      [:technical, :systemName],
+      "#{dataset_map.technical.orgName}__#{dataset_map.technical.dataName}"
+    )
   end
 
   defp organization_example do

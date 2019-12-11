@@ -20,13 +20,18 @@ defmodule SmartCity.TestHelper do
            dwell: dwell,
            max_tries: max_tries
          ) do
-      :ok -> :ok
+      :ok ->
+        :ok
+
       _ ->
         case function.() do
-          false -> raise ExUnit.AssertionError, "no assertion was made in the eventually block but the block evaluated as false"
-          result -> result
-        end
+          false ->
+            raise ExUnit.AssertionError,
+                  "no assertion was made in the eventually block but the block evaluated as false"
 
+          result ->
+            result
+        end
     end
   end
 
