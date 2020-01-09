@@ -38,7 +38,8 @@ defmodule SmartCity.TestDataGenerator do
         rights: Faker.Lorem.Shakespeare.as_you_like_it(),
         homepage: Faker.Internet.domain_name(),
         issuedDate: Faker.DateTime.backward(360) |> DateTime.to_iso8601(),
-        publishFrequency: Faker.Util.pick(["Monthly", "Weekly", "Daily", "Every Hour", "Every Minute"])
+        publishFrequency:
+          Faker.Util.pick(["Monthly", "Weekly", "Daily", "Every Hour", "Every Minute"])
       },
       technical: %{
         dataName: title,
