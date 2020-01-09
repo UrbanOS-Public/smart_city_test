@@ -36,7 +36,9 @@ defmodule SmartCity.TestDataGenerator do
         license: Faker.Util.pick(["Apache", "GNU", "BDS", "MIT"]),
         keywords: Faker.Util.list(5, &Faker.Company.buzzword/0),
         rights: Faker.Lorem.Shakespeare.as_you_like_it(),
-        homepage: Faker.Internet.domain_name()
+        homepage: Faker.Internet.domain_name(),
+        issuedDate: Faker.DateTime.backward(360) |> DateTime.to_iso8601(),
+        publishFrequency: Faker.Util.pick(["Monthly", "Weekly", "Daily", "Every Hour", "Every Minute"])
       },
       technical: %{
         dataName: title,
