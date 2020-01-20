@@ -27,6 +27,7 @@ defmodule SmartCity.TestDataGenerator do
     %{
       id: Faker.UUID.v4(),
       business: %{
+        benefitRating: Faker.random_uniform() |> Float.round(1),
         dataTitle: title,
         description: Faker.Lorem.Shakespeare.hamlet(),
         modifiedDate: Faker.DateTime.backward(360) |> DateTime.to_iso8601(),
@@ -39,7 +40,8 @@ defmodule SmartCity.TestDataGenerator do
         homepage: Faker.Internet.domain_name(),
         issuedDate: Faker.DateTime.backward(360) |> DateTime.to_iso8601(),
         publishFrequency:
-          Faker.Util.pick(["Monthly", "Weekly", "Daily", "Every Hour", "Every Minute"])
+          Faker.Util.pick(["Monthly", "Weekly", "Daily", "Every Hour", "Every Minute"]),
+        riskRating: Faker.random_uniform() |> Float.round(1)
       },
       technical: %{
         dataName: title,
@@ -49,7 +51,7 @@ defmodule SmartCity.TestDataGenerator do
         schema: schema,
         sourceUrl: Faker.Internet.domain_name(),
         sourceFormat: Faker.Util.pick(["gtfs", "csv", "json"]),
-        cadence: :rand.uniform(5_000),
+        cadence: Faker.Util.pick(["once", "* * * * *", "0 0 * * *", "never"]),
         queryParams: %{apiKey: Faker.UUID.v4()},
         transformations: ["trim", "aggregate", "rename_field"],
         validations: ["matches_schema", "no_nulls"],

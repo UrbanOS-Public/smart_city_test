@@ -13,7 +13,7 @@ defmodule SmartCity.TestDataGenerator.Schema do
        "schema" => [
          %{
            name: "id",
-           type: "int"
+           type: "integer"
          },
          %{
            name: "name",
@@ -33,7 +33,7 @@ defmodule SmartCity.TestDataGenerator.Schema do
          },
          %{
            name: "bigbig",
-           type: "int"
+           type: "integer"
          },
          %{
            name: "data",
@@ -53,7 +53,7 @@ defmodule SmartCity.TestDataGenerator.Schema do
        "schema" => [
          %{
            name: "go",
-           type: "int"
+           type: "integer"
          },
          %{
            name: "fund",
@@ -73,7 +73,7 @@ defmodule SmartCity.TestDataGenerator.Schema do
        "schema" => [
          %{
            name: "my_int",
-           type: "int"
+           type: "integer"
          },
          %{
            name: "my_string",

@@ -15,7 +15,7 @@ defmodule SmartCity.TestDataGenerator.PayloadTest do
 
   test "get_schema returns schema as list of maps" do
     expected = [
-      %{name: "my_int", type: "int"},
+      %{name: "my_int", type: "integer"},
       %{name: "my_string", type: "string"},
       %{name: "my_date", type: "date"},
       %{name: "my_float", type: "float"},

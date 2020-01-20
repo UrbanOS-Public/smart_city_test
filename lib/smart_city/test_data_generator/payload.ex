@@ -54,7 +54,7 @@ defmodule SmartCity.TestDataGenerator.Payload do
     end
   end
 
-  defp generate_from_type({_column, "int"}) do
+  defp generate_from_type({_column, "integer"}) do
     :rand.uniform(999_999)
   end
 
