@@ -27,7 +27,7 @@ defmodule SmartCity.TestDataGenerator do
     %{
       id: Faker.UUID.v4(),
       business: %{
-        benefitRating: Faker.random_uniform() |> Float.round(1),
+        benefitRating: Faker.Util.pick([0.0, 0.5, 1.0]),
         dataTitle: title,
         description: Faker.Lorem.Shakespeare.hamlet(),
         modifiedDate: Faker.DateTime.backward(360) |> DateTime.to_iso8601(),
@@ -41,7 +41,7 @@ defmodule SmartCity.TestDataGenerator do
         issuedDate: Faker.DateTime.backward(360) |> DateTime.to_iso8601(),
         publishFrequency:
           Faker.Util.pick(["Monthly", "Weekly", "Daily", "Every Hour", "Every Minute"]),
-        riskRating: Faker.random_uniform() |> Float.round(1)
+        riskRating: Faker.Util.pick([0.0, 0.5, 1.0])
       },
       technical: %{
         dataName: title,
