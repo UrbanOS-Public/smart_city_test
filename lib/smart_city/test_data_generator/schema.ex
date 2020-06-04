@@ -41,7 +41,8 @@ defmodule SmartCity.TestDataGenerator.Schema do
          },
          %{
            name: "bigger_data",
-           type: "date"
+           type: "date",
+           format: "{ISO:Extended:Z}"
          }
        ]
      }}
@@ -81,7 +82,8 @@ defmodule SmartCity.TestDataGenerator.Schema do
          },
          %{
            name: "my_date",
-           type: "date"
+           type: "date",
+           format: "{ISO:Extended:Z}"
          },
          %{
            name: "my_float",

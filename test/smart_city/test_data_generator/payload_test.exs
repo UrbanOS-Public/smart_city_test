@@ -17,7 +17,7 @@ defmodule SmartCity.TestDataGenerator.PayloadTest do
     expected = [
       %{name: "my_int", type: "integer"},
       %{name: "my_string", type: "string"},
-      %{name: "my_date", type: "date"},
+      %{name: "my_date", type: "date", format: "{ISO:Extended:Z}"},
       %{name: "my_float", type: "float"},
       %{name: "my_boolean", type: "boolean"}
     ]
