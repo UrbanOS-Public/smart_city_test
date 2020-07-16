@@ -118,7 +118,7 @@ defmodule SmartCity.TestDataGenerator do
       logoUrl: Faker.Internet.image_url(),
       homepage: Faker.Internet.domain_name(),
       dn: Faker.Internet.domain_name(),
-      dataJsonUrl: Faker.Internet.domain_name()
+      dataJsonUrl: nil
     }
   end
 
