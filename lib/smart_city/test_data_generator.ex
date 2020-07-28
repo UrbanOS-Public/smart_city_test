@@ -34,7 +34,11 @@ defmodule SmartCity.TestDataGenerator do
         orgTitle: org,
         contactName: Faker.Name.name(),
         contactEmail: Faker.Internet.email(),
-        license: Faker.Util.pick(["Apache", "GNU", "BDS", "MIT"]),
+        license:
+          Faker.Util.pick([
+            "https://creativecommons.org/licenses/by/4.0/",
+            "https://creativecommons.org/licenses/by-nd/4.0/"
+          ]),
         keywords: Faker.Util.list(5, &Faker.Company.buzzword/0),
         rights: Faker.Lorem.Shakespeare.as_you_like_it(),
         homepage: Faker.Internet.domain_name(),
