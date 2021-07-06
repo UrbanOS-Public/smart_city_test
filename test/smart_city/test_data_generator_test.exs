@@ -7,6 +7,13 @@ defmodule SmartCity.TestDataGeneratorTest do
     assert match?(%SmartCity.Dataset{}, TDG.create_dataset(%{}))
   end
 
+  test "create_dataset/1 creates a valid dataset with an overridden organization" do
+    org_id = "fake_org_id"
+    test_dataset = TDG.create_dataset(%{organization_id: org_id})
+    assert test_dataset.organization_id == org_id
+    assert match?(%SmartCity.Dataset{}, TDG.create_dataset(%{}))
+  end
+
   test "create_dataset/1 makes a valid system name :|" do
     dataset = TDG.create_dataset(%{})
 
