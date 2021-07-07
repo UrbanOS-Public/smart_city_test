@@ -18,14 +18,14 @@ defmodule SmartCity.TestDataGeneratorTest do
     dataset = TDG.create_dataset(%{})
 
     assert dataset.technical.systemName =~
-             "#{dataset.technical.dataName}"
+             "__#{dataset.technical.dataName}"
   end
 
   test "create_dataset/1 makes a valid system name :| with overrides" do
     data_name = "my_data"
 
     dataset = TDG.create_dataset(%{technical: %{dataName: data_name}})
-    assert dataset.technical.systemName =~ "_my_data"
+    assert dataset.technical.systemName =~ "__my_data"
   end
 
   test "creates datasets with valid ISO8601 DateTimes for business.modifiedDate" do
