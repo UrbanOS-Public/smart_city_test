@@ -30,7 +30,7 @@ defmodule SmartCityTest.MixProject do
   defp deps do
     [
       {:brod, "~> 3.8"},
-      {:smart_city, "~> 3.0"}, 
+      {:smart_city, "~> 3.0"},
       {:faker, "~> 0.12"},
       {:ex_doc, "~> 0.19"},
       {:credo, "~> 1.1", only: [:dev, :test, :integration], runtime: false},
