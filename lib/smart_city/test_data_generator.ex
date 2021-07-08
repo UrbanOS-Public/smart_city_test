@@ -20,18 +20,16 @@ defmodule SmartCity.TestDataGenerator do
 
   defp dataset_example do
     title = generate_title()
-    org = "#{Faker.Color.It.name()}_#{Faker.Cat.name()}"
-
     schema = Payload.get_schema(:test)
 
     %{
       id: Faker.UUID.v4(),
+      organization_id: Faker.UUID.v4(),
       business: %{
         benefitRating: Faker.Util.pick([0.0, 0.5, 1.0]),
         dataTitle: title,
         description: Faker.Lorem.Shakespeare.hamlet(),
         modifiedDate: Faker.DateTime.backward(360) |> DateTime.to_iso8601(),
-        orgTitle: org,
         contactName: Faker.Name.name(),
         contactEmail: Faker.Internet.email(),
         license:
@@ -49,8 +47,6 @@ defmodule SmartCity.TestDataGenerator do
       },
       technical: %{
         dataName: title,
-        orgName: org,
-        orgId: Faker.UUID.v4(),
         stream: false,
         schema: schema,
         sourceUrl: Faker.Internet.domain_name(),
@@ -73,6 +69,7 @@ defmodule SmartCity.TestDataGenerator do
   @spec create_dataset(
           %{
             optional(:id) => String.t(),
+            optional(:organization_id) => String.t(),
             optional(:business) => SmartCity.Dataset.Business,
             optional(:technical) => SmartCity.Dataset.Technical
           }
@@ -107,7 +104,7 @@ defmodule SmartCity.TestDataGenerator do
     put_in(
       dataset_map,
       [:technical, :systemName],
-      "#{dataset_map.technical.orgName}__#{dataset_map.technical.dataName}"
+      "#{Faker.Color.It.name()}#{Faker.Cat.name()}__#{dataset_map.technical.dataName}"
     )
   end
 
