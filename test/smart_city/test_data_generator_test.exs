@@ -29,6 +29,10 @@ defmodule SmartCity.TestDataGeneratorTest do
     assert elem(modified_date, 0) == :ok
   end
 
+  test "create_ingestion/1 creates a valid ingestion" do
+    assert match?(%SmartCity.Ingestion{}, TDG.create_ingestion(%{}))
+  end
+
   test "create_organization/1 creates a valid organization" do
     assert match?(%SmartCity.Organization{}, TDG.create_organization(%{}))
   end
