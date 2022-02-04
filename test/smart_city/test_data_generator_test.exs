@@ -29,6 +29,23 @@ defmodule SmartCity.TestDataGeneratorTest do
     assert elem(modified_date, 0) == :ok
   end
 
+  test "create_ingestion/1 creates a valid ingestion" do
+    assert match?(%SmartCity.Ingestion{}, TDG.create_ingestion(%{}))
+  end
+
+  test "create_ingestion/1 creates a valid ingestion with overrides" do
+    actual_ingestion =
+      TDG.create_ingestion(%{targetDataset: "hazel_penny", allow_duplicates: false})
+
+    assert match?(
+             %SmartCity.Ingestion{},
+             actual_ingestion
+           )
+
+    assert actual_ingestion.targetDataset == "hazel_penny"
+    assert actual_ingestion.allow_duplicates == false
+  end
+
   test "create_organization/1 creates a valid organization" do
     assert match?(%SmartCity.Organization{}, TDG.create_organization(%{}))
   end

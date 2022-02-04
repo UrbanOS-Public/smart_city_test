@@ -54,9 +54,6 @@ defmodule SmartCity.TestDataGenerator do
         stream: false,
         schema: schema,
         sourceUrl: Faker.Internet.domain_name(),
-        sourceFormat:
-          Faker.Util.pick(["application/gtfs+protobuf", "text/csv", "application/json"]),
-        cadence: Faker.Util.pick(["once", "* * * * *", "0 0 * * *", "never"]),
         queryParams: %{apiKey: Faker.UUID.v4()},
         transformations: ["trim", "aggregate", "rename_field"],
         validations: ["matches_schema", "no_nulls"],
@@ -111,6 +108,33 @@ defmodule SmartCity.TestDataGenerator do
     )
   end
 
+  defp ingestion_example do
+    %{
+      allow_duplicates: true,
+      cadence: Faker.Util.pick(["once", "* * * * *", "0 0 * * *", "never"]),
+      extractSteps: [
+        %{
+          assigns: %{},
+          context: %{
+            :body => %{},
+            :headers => [],
+            :protocol => nil,
+            :queryParams => [],
+            :url => "#{Faker.Internet.domain_name()}/data",
+            :action => "GET"
+          },
+          sequence: Faker.Util.pick(10000..19999),
+          type: "http"
+        }
+      ],
+      schema: Payload.get_schema(:test),
+      sourceFormat:
+        Faker.Util.pick(["application/gtfs+protobuf", "text/csv", "application/json"]),
+      targetDataset: generate_title(),
+      topLevelSelector: "$.#{Faker.Name.name()}.#{Faker.Cat.name()}"
+    }
+  end
+
   defp organization_example do
     org = "#{Faker.Color.It.name()}_#{Faker.Cat.name()}"
 
@@ -124,6 +148,32 @@ defmodule SmartCity.TestDataGenerator do
       dn: Faker.Internet.domain_name(),
       dataJsonUrl: nil
     }
+  end
+
+  @doc """
+  Creates and returns a new `SmartCity.Ingestion` example
+  """
+  @spec create_ingestion(
+          %{
+            optional(:allow_duplicates) => boolean(),
+            optional(:cadence) => String.t(),
+            optional(:extractSteps) => list(map()),
+            optional(:schema) => list(map()),
+            optional(:sourceFormat) => String.t(),
+            optional(:targetDataset) => String.t(),
+            optional(:topLevelSelector) => String.t()
+          }
+          | Enumerable.t()
+        ) :: SmartCity.Ingestion
+  def create_ingestion(%{} = overrides) when overrides == %{} do
+    ingestion_example()
+    |> SmartCity.Ingestion.new()
+  end
+
+  def create_ingestion(%{} = overrides) do
+    ingestion_example()
+    |> SmartCity.Helpers.deep_merge(overrides)
+    |> SmartCity.Ingestion.new()
   end
 
   @doc """
