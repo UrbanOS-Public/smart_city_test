@@ -79,7 +79,7 @@ defmodule SmartCity.TestDataGenerator do
     {:ok, dataset} =
       dataset_example()
       |> add_system_name()
-      |> (fn map -> apply(SmartCity.Dataset, :new, [map]) end).()
+      |> SmartCity.Dataset.new()
 
     dataset
   end
@@ -89,7 +89,7 @@ defmodule SmartCity.TestDataGenerator do
       dataset_example()
       |> SmartCity.Helpers.deep_merge(overrides)
       |> add_system_name()
-      |> (fn map -> apply(SmartCity.Dataset, :new, [map]) end).()
+      |> SmartCity.Dataset.new()
 
     dataset
   end
@@ -194,7 +194,7 @@ defmodule SmartCity.TestDataGenerator do
   def create_organization(%{} = overrides) when overrides == %{} do
     {:ok, organization} =
       organization_example()
-      |> (fn map -> apply(SmartCity.Organization, :new, [map]) end).()
+      |> SmartCity.Organization.new()
 
     organization
   end
@@ -203,7 +203,7 @@ defmodule SmartCity.TestDataGenerator do
     {:ok, organization} =
       organization_example()
       |> SmartCity.Helpers.deep_merge(overrides)
-      |> (fn map -> apply(SmartCity.Organization, :new, [map]) end).()
+      |> SmartCity.Organization.new()
 
     organization
   end
@@ -250,7 +250,7 @@ defmodule SmartCity.TestDataGenerator do
     {:ok, data} =
       data_example()
       |> Map.merge(overrides)
-      |> (fn map -> apply(SmartCity.Data, :new, [map]) end).()
+      |> SmartCity.Data.new()
 
     data
   end
