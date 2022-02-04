@@ -176,10 +176,6 @@ defmodule SmartCity.TestDataGenerator do
     |> SmartCity.Ingestion.new()
   end
 
-  def create_ingestion(term) do
-    create_ingestion(Map.new(term))
-  end
-
   @doc """
   Creates and returns a new `SmartCity.Organization` example
   """
