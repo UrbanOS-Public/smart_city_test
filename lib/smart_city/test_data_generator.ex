@@ -110,6 +110,7 @@ defmodule SmartCity.TestDataGenerator do
 
   defp ingestion_example do
     %{
+      id: Faker.UUID.v4(),
       allow_duplicates: true,
       cadence: Faker.Util.pick(["once", "* * * * *", "0 0 * * *", "never"]),
       extractSteps: [
@@ -155,6 +156,7 @@ defmodule SmartCity.TestDataGenerator do
   """
   @spec create_ingestion(
           %{
+            optional(:id) => String.t(),
             optional(:allow_duplicates) => boolean(),
             optional(:cadence) => String.t(),
             optional(:extractSteps) => list(map()),
