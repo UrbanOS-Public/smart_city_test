@@ -46,6 +46,24 @@ defmodule SmartCity.TestDataGeneratorTest do
     assert actual_ingestion.allow_duplicates == false
   end
 
+  test "create_transformation/1 creates a valid transformation" do
+    assert match?(%SmartCity.Ingestion.Transformation{}, TDG.create_transformation(%{}))
+  end
+
+  test "create_transformation/1 creates a valid transformation with overrides" do
+    actual_transformation =
+      TDG.create_transformation(%{
+        type: "awesome_transform",
+        parameters: %{param1: "huzzah", param2: 42}
+      })
+
+    assert match?(%SmartCity.Ingestion.Transformation{}, actual_transformation)
+
+    assert actual_transformation.type == "awesome_transform"
+    assert actual_transformation.parameters.param1 == "huzzah"
+    assert actual_transformation.parameters.param2 == 42
+  end
+
   test "create_organization/1 creates a valid organization" do
     assert match?(%SmartCity.Organization{}, TDG.create_organization(%{}))
   end

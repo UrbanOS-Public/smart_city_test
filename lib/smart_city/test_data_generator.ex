@@ -139,6 +139,17 @@ defmodule SmartCity.TestDataGenerator do
     }
   end
 
+  defp transformation_regex_extract_example do
+    %{
+      type: "regex_extract",
+      parameters: %{
+        sourceField: Faker.Cat.name(),
+        targetField: Faker.Cat.name(),
+        regex: "^\\((\\d{3})\\)"
+      }
+    }
+  end
+
   defp organization_example do
     org = "#{Faker.Color.It.name()}_#{Faker.Cat.name()}"
 
@@ -179,6 +190,27 @@ defmodule SmartCity.TestDataGenerator do
     ingestion_example()
     |> SmartCity.Helpers.deep_merge(overrides)
     |> SmartCity.Ingestion.new()
+  end
+
+  @doc """
+  Creates and returns a new `SmartCity.Ingestion.Transformation` example
+  """
+  @spec create_transformation(
+          %{
+            optional(:type) => String.t(),
+            optional(:parameters) => map()
+          }
+          | Enumerable.t()
+        ) :: SmartCity.Ingestion.Transformation
+  def create_transformation(%{} = overrides) when overrides == %{} do
+    transformation_regex_extract_example()
+    |> SmartCity.Ingestion.Transformation.new()
+  end
+
+  def create_transformation(%{} = overrides) do
+    transformation_regex_extract_example()
+    |> SmartCity.Helpers.deep_merge(overrides)
+    |> SmartCity.Ingestion.Transformation.new()
   end
 
   @doc """
