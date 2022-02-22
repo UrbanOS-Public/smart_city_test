@@ -177,7 +177,8 @@ defmodule SmartCity.TestDataGenerator do
             optional(:schema) => list(map()),
             optional(:sourceFormat) => String.t(),
             optional(:targetDataset) => String.t(),
-            optional(:topLevelSelector) => String.t()
+            optional(:topLevelSelector) => String.t(),
+            optional(:transformations) => list(SmartCity.Ingestion.Transformation.t())
           }
           | Enumerable.t()
         ) :: SmartCity.Ingestion
