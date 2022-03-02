@@ -132,6 +132,7 @@ defmodule SmartCity.TestDataGenerator do
         }
       ],
       schema: Payload.get_schema(:test),
+      transformations: [],
       sourceFormat:
         Faker.Util.pick(["application/gtfs+protobuf", "text/csv", "application/json"]),
       targetDataset: Faker.UUID.v4(),
