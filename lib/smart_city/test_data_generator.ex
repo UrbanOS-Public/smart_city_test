@@ -114,6 +114,7 @@ defmodule SmartCity.TestDataGenerator do
   defp ingestion_example do
     %{
       id: Faker.UUID.v4(),
+      name: "Ingestion #{Faker.Cat.name()}",
       allow_duplicates: true,
       cadence: Faker.Util.pick(["once", "* * * * *", "0 0 * * *", "never"]),
       extractSteps: [

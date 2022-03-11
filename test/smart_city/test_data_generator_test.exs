@@ -37,6 +37,7 @@ defmodule SmartCity.TestDataGeneratorTest do
     actual_ingestion =
       TDG.create_ingestion(%{
         targetDataset: "hazel_penny",
+        name: "Noodle",
         allow_duplicates: false,
         transformations: [TDG.create_transformation(%{type: "type"})]
       })
@@ -47,6 +48,7 @@ defmodule SmartCity.TestDataGeneratorTest do
            )
 
     assert actual_ingestion.targetDataset == "hazel_penny"
+    assert actual_ingestion.name == "Noodle"
     assert actual_ingestion.allow_duplicates == false
     assert List.first(actual_ingestion.transformations).type == "type"
   end
