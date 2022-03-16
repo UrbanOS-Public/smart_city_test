@@ -75,6 +75,17 @@ defmodule SmartCity.TestDataGeneratorTest do
     assert match?(%SmartCity.Organization{}, TDG.create_organization(%{}))
   end
 
+  test "create_access_group/1 creates a valid access group" do
+    assert match?(%SmartCity.AccessGroup{}, TDG.create_access_group(%{}))
+  end
+
+  test "create_access_group/1 creates a valid access group with overriders" do
+    access_group =  TDG.create_access_group(%{name: "penny", description: "Penny Access Group"})
+    assert match?(%SmartCity.AccessGroup{}, access_group)
+    assert access_group.name == "penny"
+    assert access_group.description == "Penny Access Group"
+  end
+
   test "create_data/1 creates valid data" do
     assert match?(%SmartCity.Data{}, TDG.create_data(%{dataset_id: "12"}))
   end
