@@ -167,6 +167,14 @@ defmodule SmartCity.TestDataGenerator do
     }
   end
 
+  defp access_group_example do
+
+    %{
+      id: Faker.UUID.v4(),
+      name: "Access Group #{Faker.Cat.name()}"
+    }
+  end
+
   @doc """
   Creates and returns a new `SmartCity.Ingestion` example
   """
@@ -250,6 +258,38 @@ defmodule SmartCity.TestDataGenerator do
 
   def create_organization(term) do
     create_organization(Map.new(term))
+  end
+
+   @doc """
+  Creates and returns a new `SmartCity.AccessGroup` example
+  """
+  @spec create_access_group(
+          %{
+            optional(:description) => String.t(),
+            optional(:id) => String.t(),
+            optional(:name) => String.t()
+          }
+          | Enumerable.t()
+        ) :: SmartCity.Organization
+  def create_access_group(%{} = overrides) when overrides == %{} do
+    {:ok, access_group} =
+      access_group_example()
+      |> SmartCity.AccessGroup.new()
+
+    access_group
+  end
+
+  def create_access_group(%{} = overrides) do
+    {:ok, access_group} =
+      access_group_example()
+      |> SmartCity.Helpers.deep_merge(overrides)
+      |> SmartCity.AccessGroup.new()
+
+    access_group
+  end
+
+  def create_access_group(term) do
+    create_access_group(Map.new(term))
   end
 
   defp data_example do
