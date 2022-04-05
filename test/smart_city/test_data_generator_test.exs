@@ -94,4 +94,11 @@ defmodule SmartCity.TestDataGeneratorTest do
     assert %{technical: %{systemName: "something"}} =
              TDG.create_dataset(%{technical: %{systemName: "something"}})
   end
+
+  test "create_user/1" do
+    {:ok, user} = TDG.create_user(%{})
+    refute user.subject_id == nil
+    refute user.email == nil
+    refute user.name == nil
+  end
 end

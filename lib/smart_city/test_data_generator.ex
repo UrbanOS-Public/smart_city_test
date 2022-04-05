@@ -356,4 +356,18 @@ defmodule SmartCity.TestDataGenerator do
     1..number
     |> Enum.map(fn _index -> create_data(overrides) end)
   end
+
+  @doc """
+  Creates a SmartCity.User with defined overrides.
+  Overrides are a map which can contain the keys: subject_id, email, name.
+  If an override is not provided for a particular property, a random one will be generated.
+  """
+  @spec create_user(%{} | Enumberable.t()) :: SmartCity.User
+  def create_user(_) do
+    SmartCity.User.new(%{
+      subject_id: Faker.UUID.v4(),
+      email: Faker.Internet.email(),
+      name: Faker.Name.name()
+    })
+  end
 end
