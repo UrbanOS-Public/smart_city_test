@@ -94,4 +94,19 @@ defmodule SmartCity.TestDataGeneratorTest do
     assert %{technical: %{systemName: "something"}} =
              TDG.create_dataset(%{technical: %{systemName: "something"}})
   end
+
+  test "create_user/1 creates a valid user" do
+    user = TDG.create_user(%{})
+    refute user.subject_id == nil
+    refute user.email == nil
+    refute user.name == nil
+  end
+
+  test "create_user/1 overrides user fields with overrides" do
+    overrides = %{subject_id: "auth0|000000", email: "override@example.com", name: "Custom User"}
+    user = TDG.create_user(overrides)
+    assert user.subject_id == overrides.subject_id
+    assert user.email == overrides.email
+    assert user.name == overrides.name
+  end
 end
