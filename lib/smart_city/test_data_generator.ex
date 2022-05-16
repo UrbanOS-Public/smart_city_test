@@ -168,7 +168,6 @@ defmodule SmartCity.TestDataGenerator do
   end
 
   defp access_group_example do
-
     %{
       id: Faker.UUID.v4(),
       name: "Access Group #{Faker.Cat.name()}"
@@ -268,7 +267,7 @@ defmodule SmartCity.TestDataGenerator do
     create_organization(Map.new(term))
   end
 
-   @doc """
+  @doc """
   Creates and returns a new `SmartCity.AccessGroup` example
   """
   @spec create_access_group(
@@ -307,6 +306,8 @@ defmodule SmartCity.TestDataGenerator do
 
     %{
       dataset_id: Faker.UUID.v4(),
+      ingestion_id: Faker.UUID.v4(),
+      extraction_start_time: DateTime.utc_now() |> DateTime.to_iso8601(),
       payload: payload,
       _metadata: %{org: Faker.Company.name(), name: Faker.Team.name()},
       operational: %{
@@ -372,9 +373,11 @@ defmodule SmartCity.TestDataGenerator do
   """
   @spec create_user(%{} | Enumberable.t()) :: SmartCity.User
   def create_user(overrides) do
-    {:ok, user} = user_example()
-    |> Map.merge(overrides)
-    |> SmartCity.User.new()
+    {:ok, user} =
+      user_example()
+      |> Map.merge(overrides)
+      |> SmartCity.User.new()
+
     user
   end
 end
