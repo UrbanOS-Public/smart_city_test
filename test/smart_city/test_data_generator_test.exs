@@ -80,7 +80,7 @@ defmodule SmartCity.TestDataGeneratorTest do
   end
 
   test "create_access_group/1 creates a valid access group with overriders" do
-    access_group =  TDG.create_access_group(%{name: "penny", description: "Penny Access Group"})
+    access_group = TDG.create_access_group(%{name: "penny", description: "Penny Access Group"})
     assert match?(%SmartCity.AccessGroup{}, access_group)
     assert access_group.name == "penny"
     assert access_group.description == "Penny Access Group"
@@ -88,6 +88,53 @@ defmodule SmartCity.TestDataGeneratorTest do
 
   test "create_data/1 creates valid data" do
     assert match?(%SmartCity.Data{}, TDG.create_data(%{dataset_id: "12"}))
+  end
+
+  test "create_data/1 accepts overrides" do
+    metadata = %{
+      "org" => "best_org",
+      "name" => "good_data",
+      "stream" => true
+    }
+
+    timing = %{
+      "start_time" => "2022-05-16T19:11:15+0000",
+      "end_time" => "2022-05-16T19:12:15+0000",
+      "app" => "something",
+      "label" => "optimal"
+    }
+
+    operational = %{
+      "timing" => [timing]
+    }
+
+    payload = %{
+      "thing" => "yay",
+      "other_thing" => "nah"
+    }
+
+    overrides = %{
+      "dataset_id" => "dataset123",
+      "ingestion_id" => "ingestion456",
+      "extraction_start_time" => "2022-05-16T19:11:15+0000",
+      "_metadata" => metadata,
+      "operational" => operational,
+      "payload" => payload
+    }
+
+    data = TDG.create_data(overrides)
+    assert Map.get(overrides, "dataset_id") == data.dataset_id
+    assert Map.get(overrides, "ingestion_id") == data.ingestion_id
+    assert Map.get(overrides, "extraction_start_time") == data.extraction_start_time
+    assert Map.get(metadata, "org") == data._metadata.org
+    assert Map.get(metadata, "name") == data._metadata.name
+    assert Map.get(metadata, "stream") == data._metadata.stream
+    [first_timing | _] = data.operational.timing
+    assert Map.get(timing, "start_time") == first_timing.start_time
+    assert Map.get(timing, "end_time") == first_timing.end_time
+    assert Map.get(timing, "app") == first_timing.app
+    assert Map.get(timing, "label") == first_timing.label
+    assert payload == data.payload
   end
 
   test "create_dataset uses systemName if given one" do
