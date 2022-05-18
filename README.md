@@ -1,4 +1,4 @@
-[![Master](https://travis-ci.org/smartcitiesdata/smart_city_test.svg?branch=master)](https://travis-ci.org/smartcitiesdata/smart_city_test)
+[![smart_city_test](https://github.com/UrbanOS-Public/smart_city_test/actions/workflows/smart_city_test.yml/badge.svg)](https://github.com/UrbanOS-Public/smart_city_test/actions/workflows/smart_city_test.yml)
 [![Hex.pm Version](http://img.shields.io/hexpm/v/smart_city_test.svg?style=flat)](https://hex.pm/packages/smart_city_test)
 
 # SmartCityTest
