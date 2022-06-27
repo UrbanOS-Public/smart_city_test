@@ -143,6 +143,7 @@ defmodule SmartCity.TestDataGenerator do
 
   defp transformation_regex_extract_example do
     %{
+      name: "Transformation Name",
       type: "regex_extract",
       parameters: %{
         sourceField: Faker.Cat.name(),
