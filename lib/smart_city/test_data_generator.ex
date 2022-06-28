@@ -51,16 +51,8 @@ defmodule SmartCity.TestDataGenerator do
         dataName: title,
         orgName: org,
         orgId: Faker.UUID.v4(),
-        stream: false,
         schema: schema,
         sourceUrl: Faker.Internet.domain_name(),
-        sourceFormat:
-          Faker.Util.pick(["application/gtfs+protobuf", "text/csv", "application/json"]),
-        cadence: Faker.Util.pick(["once", "* * * * *", "0 0 * * *", "never"]),
-        queryParams: %{apiKey: Faker.UUID.v4()},
-        transformations: ["trim", "aggregate", "rename_field"],
-        validations: ["matches_schema", "no_nulls"],
-        headers: %{accepts: "application/json"},
         sourceType: "ingest",
         private: false
       }
