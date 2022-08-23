@@ -61,12 +61,16 @@ defmodule SmartCity.TestDataGeneratorTest do
     actual_transformation =
       TDG.create_transformation(%{
         type: "awesome_transform",
-        parameters: %{param1: "huzzah", param2: 42}
+        parameters: %{param1: "huzzah", param2: 42},
+        id: "some_id",
+        sequence: 99999
       })
 
     assert match?(%SmartCity.Ingestion.Transformation{}, actual_transformation)
 
+    assert actual_transformation.id == "some_id"
     assert actual_transformation.type == "awesome_transform"
+    assert actual_transformation.sequence == 99999
     assert actual_transformation.parameters.param1 == "huzzah"
     assert actual_transformation.parameters.param2 == 42
   end

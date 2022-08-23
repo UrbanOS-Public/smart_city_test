@@ -135,8 +135,10 @@ defmodule SmartCity.TestDataGenerator do
 
   defp transformation_regex_extract_example do
     %{
+      id: Faker.UUID.v4(),
       name: "Transformation Name",
       type: "regex_extract",
+      sequence: Enum.random([1..1000]),
       parameters: %{
         sourceField: Faker.Cat.name(),
         targetField: Faker.Cat.name(),
@@ -209,7 +211,9 @@ defmodule SmartCity.TestDataGenerator do
   @spec create_transformation(
           %{
             optional(:type) => String.t(),
-            optional(:parameters) => map()
+            optional(:parameters) => map(),
+            optional(:id) => String.t(),
+            optional(:sequence) => Integer.t()
           }
           | Enumerable.t()
         ) :: SmartCity.Ingestion.Transformation
