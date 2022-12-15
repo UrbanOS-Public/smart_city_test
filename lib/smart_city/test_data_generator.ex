@@ -117,7 +117,7 @@ defmodule SmartCity.TestDataGenerator do
             :headers => [],
             :protocol => nil,
             :queryParams => [],
-            :url => "#{Faker.Internet.domain_name()}/data",
+            :url => "http://#{Faker.Internet.domain_name()}/data",
             :action => "GET"
           },
           sequence: Faker.Util.pick(10000..19999),
