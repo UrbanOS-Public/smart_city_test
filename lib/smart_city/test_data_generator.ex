@@ -113,7 +113,7 @@ defmodule SmartCity.TestDataGenerator do
         %{
           assigns: %{},
           context: %{
-            :body => %{},
+            :body => "",
             :headers => [],
             :protocol => nil,
             :queryParams => [],
