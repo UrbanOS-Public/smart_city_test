@@ -128,7 +128,7 @@ defmodule SmartCity.TestDataGenerator do
       transformations: [],
       sourceFormat:
         Faker.Util.pick(["application/gtfs+protobuf", "text/csv", "application/json"]),
-      targetDataset: Faker.UUID.v4(),
+      targetDatasets: [Faker.UUID.v4(), Faker.UUID.v4()],
       topLevelSelector: "$.#{Faker.Name.name()}.#{Faker.Cat.name()}"
     }
   end
@@ -188,7 +188,7 @@ defmodule SmartCity.TestDataGenerator do
             optional(:extractSteps) => list(map()),
             optional(:schema) => list(map()),
             optional(:sourceFormat) => String.t(),
-            optional(:targetDataset) => String.t(),
+            optional(:targetDatasets) => list(String.t()),
             optional(:topLevelSelector) => String.t(),
             optional(:transformations) => list(SmartCity.Ingestion.Transformation.t())
           }

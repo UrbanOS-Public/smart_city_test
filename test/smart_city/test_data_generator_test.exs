@@ -36,7 +36,7 @@ defmodule SmartCity.TestDataGeneratorTest do
   test "create_ingestion/1 creates a valid ingestion with overrides" do
     actual_ingestion =
       TDG.create_ingestion(%{
-        targetDataset: "hazel_penny",
+        targetDatasets: ["hazel_penny", "blue_dime"],
         name: "Noodle",
         allow_duplicates: false,
         transformations: [TDG.create_transformation(%{type: "type"})]
@@ -47,7 +47,7 @@ defmodule SmartCity.TestDataGeneratorTest do
              actual_ingestion
            )
 
-    assert actual_ingestion.targetDataset == "hazel_penny"
+    assert actual_ingestion.targetDatasets == ["hazel_penny", "blue_dime"]
     assert actual_ingestion.name == "Noodle"
     assert actual_ingestion.allow_duplicates == false
     assert List.first(actual_ingestion.transformations).type == "type"
