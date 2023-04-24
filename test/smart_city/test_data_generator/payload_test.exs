@@ -15,11 +15,11 @@ defmodule SmartCity.TestDataGenerator.PayloadTest do
 
   test "get_schema returns schema as list of maps" do
     expected = [
-      %{name: "my_int", type: "integer"},
-      %{name: "my_string", type: "string"},
-      %{name: "my_date", type: "date", format: "{ISO:Extended:Z}"},
-      %{name: "my_float", type: "float"},
-      %{name: "my_boolean", type: "boolean"}
+      %{name: "my_int", type: "integer", ingestion_field_selector: "my_int"},
+      %{name: "my_string", type: "string", ingestion_field_selector: "my_string"},
+      %{name: "my_date", type: "date", format: "{ISO:Extended:Z}", ingestion_field_selector: "my_date"},
+      %{name: "my_float", type: "float", ingestion_field_selector: "my_float"},
+      %{name: "my_boolean", type: "boolean", ingestion_field_selector: "my_boolean"}
     ]
 
     assert Payload.get_schema(:test) == expected
