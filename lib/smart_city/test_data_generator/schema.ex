@@ -13,11 +13,13 @@ defmodule SmartCity.TestDataGenerator.Schema do
        "schema" => [
          %{
            name: "id",
-           type: "integer"
+           type: "integer",
+           ingestion_field_selector: "id"
          },
          %{
            name: "name",
-           type: "string"
+           type: "string",
+           ingestion_field_selector: "name"
          }
        ]
      }}
@@ -29,20 +31,24 @@ defmodule SmartCity.TestDataGenerator.Schema do
        "schema" => [
          %{
            name: "big",
-           type: "string"
+           type: "string",
+           ingestion_field_selector: "big"
          },
          %{
            name: "bigbig",
-           type: "integer"
+           type: "integer",
+           ingestion_field_selector: "bigbig"
          },
          %{
            name: "data",
-           type: "float"
+           type: "float",
+           ingestion_field_selector: "data"
          },
          %{
            name: "bigger_data",
            type: "date",
-           format: "{ISO:Extended:Z}"
+           format: "{ISO:Extended:Z}",
+           ingestion_field_selector: "bigger_data"
          }
        ]
      }}
@@ -54,15 +60,18 @@ defmodule SmartCity.TestDataGenerator.Schema do
        "schema" => [
          %{
            name: "go",
-           type: "integer"
+           type: "integer",
+           ingestion_field_selector: "go"
          },
          %{
            name: "fund",
-           type: "string"
+           type: "string",
+           ingestion_field_selector: "fund"
          },
          %{
            name: "yourself",
-           type: "string"
+           type: "string",
+           ingestion_field_selector: "yourself"
          }
        ]
      }}
@@ -74,24 +83,29 @@ defmodule SmartCity.TestDataGenerator.Schema do
        "schema" => [
          %{
            name: "my_int",
-           type: "integer"
+           type: "integer",
+           ingestion_field_selector: "my_int"
          },
          %{
            name: "my_string",
-           type: "string"
+           type: "string",
+           ingestion_field_selector: "my_string"
          },
          %{
            name: "my_date",
            type: "date",
-           format: "{ISO:Extended:Z}"
+           format: "{ISO:Extended:Z}",
+           ingestion_field_selector: "my_date"
          },
          %{
            name: "my_float",
-           type: "float"
+           type: "float",
+           ingestion_field_selector: "my_float"
          },
          %{
            name: "my_boolean",
-           type: "boolean"
+           type: "boolean",
+           ingestion_field_selector: "my_boolean"
          }
        ]
      }}
