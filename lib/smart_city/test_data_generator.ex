@@ -302,7 +302,7 @@ defmodule SmartCity.TestDataGenerator do
     payload = Payload.create_payload(:test)
 
     %{
-      dataset_id: Faker.UUID.v4(),
+      dataset_ids: [Faker.UUID.v4(), Faker.UUID.v4()],
       ingestion_id: Faker.UUID.v4(),
       extraction_start_time: DateTime.utc_now() |> DateTime.to_iso8601(),
       payload: payload,
@@ -325,7 +325,7 @@ defmodule SmartCity.TestDataGenerator do
   """
   @spec create_data(
           %{
-            optional(:dataset_id) => String.t(),
+            optional(:dataset_ids) => list(String.t()),
             optional(:_metadata) => map(),
             optional(:operational) => map(),
             optional(:payload) => map()
@@ -350,7 +350,7 @@ defmodule SmartCity.TestDataGenerator do
   """
   @spec create_data(
           %{
-            optional(:dataset_id) => String.t(),
+            optional(:dataset_ids) => list(String.t()),
             optional(:_metadata) => map(),
             optional(:operational) => map(),
             optional(:payload) => map()

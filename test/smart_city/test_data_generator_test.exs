@@ -91,7 +91,7 @@ defmodule SmartCity.TestDataGeneratorTest do
   end
 
   test "create_data/1 creates valid data" do
-    assert match?(%SmartCity.Data{}, TDG.create_data(%{dataset_id: "12"}))
+    assert match?(%SmartCity.Data{}, TDG.create_data(%{dataset_ids: ["12", "34"]}))
   end
 
   test "create_data/1 accepts overrides" do
@@ -118,7 +118,7 @@ defmodule SmartCity.TestDataGeneratorTest do
     }
 
     overrides = %{
-      "dataset_id" => "dataset123",
+      "dataset_ids" => ["dataset123", "dataset456"],
       "ingestion_id" => "ingestion456",
       "extraction_start_time" => "2022-05-16T19:11:15+0000",
       "_metadata" => metadata,
@@ -127,7 +127,7 @@ defmodule SmartCity.TestDataGeneratorTest do
     }
 
     data = TDG.create_data(overrides)
-    assert Map.get(overrides, "dataset_id") == data.dataset_id
+    assert Map.get(overrides, "dataset_ids") == data.dataset_ids
     assert Map.get(overrides, "ingestion_id") == data.ingestion_id
     assert Map.get(overrides, "extraction_start_time") == data.extraction_start_time
     assert Map.get(metadata, "org") == data._metadata.org
