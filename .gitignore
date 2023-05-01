@@ -24,3 +24,9 @@ smart_city_test-*.tar
 
 .elixir_ls
 
+#MacOs
+.DS_Store
+
+#Intellij Artifacts
+.idea/
+smart_city_test.iml

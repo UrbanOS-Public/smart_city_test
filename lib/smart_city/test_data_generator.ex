@@ -128,7 +128,7 @@ defmodule SmartCity.TestDataGenerator do
       transformations: [],
       sourceFormat:
         Faker.Util.pick(["application/gtfs+protobuf", "text/csv", "application/json"]),
-      targetDataset: Faker.UUID.v4(),
+      targetDatasets: [Faker.UUID.v4(), Faker.UUID.v4()],
       topLevelSelector: "$.#{Faker.Name.name()}.#{Faker.Cat.name()}"
     }
   end
@@ -188,7 +188,7 @@ defmodule SmartCity.TestDataGenerator do
             optional(:extractSteps) => list(map()),
             optional(:schema) => list(map()),
             optional(:sourceFormat) => String.t(),
-            optional(:targetDataset) => String.t(),
+            optional(:targetDatasets) => list(String.t()),
             optional(:topLevelSelector) => String.t(),
             optional(:transformations) => list(SmartCity.Ingestion.Transformation.t())
           }
@@ -302,7 +302,7 @@ defmodule SmartCity.TestDataGenerator do
     payload = Payload.create_payload(:test)
 
     %{
-      dataset_id: Faker.UUID.v4(),
+      dataset_ids: [Faker.UUID.v4(), Faker.UUID.v4()],
       ingestion_id: Faker.UUID.v4(),
       extraction_start_time: DateTime.utc_now() |> DateTime.to_iso8601(),
       payload: payload,
@@ -325,7 +325,7 @@ defmodule SmartCity.TestDataGenerator do
   """
   @spec create_data(
           %{
-            optional(:dataset_id) => String.t(),
+            optional(:dataset_ids) => list(String.t()),
             optional(:_metadata) => map(),
             optional(:operational) => map(),
             optional(:payload) => map()
@@ -350,7 +350,7 @@ defmodule SmartCity.TestDataGenerator do
   """
   @spec create_data(
           %{
-            optional(:dataset_id) => String.t(),
+            optional(:dataset_ids) => list(String.t()),
             optional(:_metadata) => map(),
             optional(:operational) => map(),
             optional(:payload) => map()
