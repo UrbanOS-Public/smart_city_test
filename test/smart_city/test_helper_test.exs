@@ -3,15 +3,13 @@ defmodule SmartCity.TestHelperTest do
   Pretty much the best test module name ever
   """
   use ExUnit.Case
-  use Placebo
 
   import SmartCity.TestHelper
+  import Mock
 
   setup do
-    allow(Fake.do_thing_eventually(),
-      loop: ["not thing", "not thing", "thing", "not thing"],
-      meck_options: [:non_strict]
-    )
+    :meck.new(Fake, [:non_strict])
+    :meck.expect(Fake, :do_thing_eventually, 0, :meck.loop(["not thing", "not thing", "thing", "not thing"]))
 
     :ok
   end
@@ -24,6 +22,8 @@ defmodule SmartCity.TestHelperTest do
         end,
         100
       )
+
+      :meck.unload(Fake)
     end
 
     test "does not bomb out when an match fails immediately" do
@@ -36,6 +36,8 @@ defmodule SmartCity.TestHelperTest do
         end,
         100
       )
+
+      :meck.unload(Fake)
     end
 
     test "fails when nothing is asserted but we ultimately exhaust the retries" do
@@ -47,6 +49,8 @@ defmodule SmartCity.TestHelperTest do
           100
         )
       end)
+
+      :meck.unload(Fake)
     end
 
     test "fails with a HELPFUL (real AssertionError) message when assertion actually ultimately exhausts the retries" do
@@ -67,6 +71,8 @@ defmodule SmartCity.TestHelperTest do
           100
         )
       end)
+
+      :meck.unload(Fake)
     end
   end
 end

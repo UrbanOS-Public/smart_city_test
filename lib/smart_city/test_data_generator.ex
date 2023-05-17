@@ -120,7 +120,7 @@ defmodule SmartCity.TestDataGenerator do
             :url => "http://#{Faker.Internet.domain_name()}/data",
             :action => "GET"
           },
-          sequence: Faker.Util.pick(10000..19999),
+          sequence: Faker.Util.pick(10_000..19_999),
           type: "http"
         }
       ],
